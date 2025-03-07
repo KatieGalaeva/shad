@@ -1,0 +1,4 @@
+[submodule "python_project/fastapi_shad_2025"]
+	path = python_project/fastapi_shad_2025
+	url = git@github.com:KatieGalaeva/fastapi_shad_2025.git
+	branch = lesson_3
