@@ -5,3 +5,8 @@ ml_2/train.csv
 ml_2/test.csv
 ml_2/submission.csv
 ml_2/catboost_info
+ml_final/catboost_info
+ml_final/catboost_model_all.cbm
+ml_final/catboost_model.cbm
+ml_final/test_full.csv
+ml_final/train.csv
