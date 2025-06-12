@@ -1,0 +1,21 @@
+services:
+  mlflow-services:
+    image: python:3.12
+    container_name: mlflow-server
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./mlflow_tmp:/tmp:rw
+    environment:
+      - MLFLOW_PORT=5000
+      - MLFLOW_HOST=0.0.0.0
+      - MLFLOW_BACKEND_STORE_URI=sqlite:////tmp/mlflow.db
+      - MLFLOW_DEFAULT_ARTIFACT_ROOT=/tmp/mlflow/artifacts
+    command: >
+      sh -c "pip install mlflow &&
+      mkdir -p /tmp/mlflow/artifacts &&
+      chmod -R 777 /tmp &&
+      mlflow server --host $$MLFLOW_HOST --port $$MLFLOW_PORT
+                    --backend-store-uri $$MLFLOW_BACKEND_STORE_URI
+                    --default-artifact-root $$MLFLOW_DEFAULT_ARTIFACT_ROOT"
+
